@@ -1,7 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    alert("you clicked me!");
+    setCount(count + 1)
+  }
+
+  function MyButton() {
+    return (
+      <button onClick={handleClick}>
+        clicked {count} times
+      </button>
+    )
+  }
+
+
   const user = {
     name: 'Hedy Lamarr',
     imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
@@ -16,11 +33,11 @@ function App() {
 
   const listItems = products.map(
     product =>
-      <li 
-      key={product.id}
-      style={{
-        color: product.isFruit ? 'red' : 'green'
-      }}
+      <li
+        key={product.id}
+        style={{
+          color: product.isFruit ? 'red' : 'green'
+        }}
       >
 
         {product.title}
@@ -31,7 +48,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={user.imageUrl} className="App-logo" alt="logo" />
-          <h1>     {user.name} </h1>
+        <h1>     {user.name} </h1>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -44,6 +61,8 @@ function App() {
           Learn React
         </a>
 
+        <div> <MyButton /> </div>
+        <div> <MyButton /> </div>
         <ul>{listItems}</ul>
       </header>
     </div>
