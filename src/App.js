@@ -10,9 +10,9 @@ function App() {
     setCount(count + 1)
   }
 
-  function MyButton() {
+  function MyButton({ count, onClick }) {
     return (
-      <button onClick={handleClick}>
+      <button onClick={onClick}>
         clicked {count} times
       </button>
     )
@@ -61,8 +61,9 @@ function App() {
           Learn React
         </a>
 
-        <div> <MyButton /> </div>
-        <div> <MyButton /> </div>
+        <div> <MyButton count={count} onClick={handleClick} /> </div>
+        <div> <MyButton count={count} onClick={handleClick} /> </div>
+
         <ul>{listItems}</ul>
       </header>
     </div>
